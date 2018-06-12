@@ -136,6 +136,29 @@ Zaposleniapp
 								});
 								return $scope.tovar;
 							};
+							$scope.SQLzapisZ = function(zapo) {
+								var Indata = {
+									'id' : parseInt(zapo.id),
+									'delavec' : zapo.ImeDelavca,
+								};
+								console.log(zapo);
+								var reso = $http
+										.post(
+												"http://localhost:8080/NWPdwp/rest/tovarna/zapisSQL", zapo);
+								reso.success(function(data, status, headers,
+										config) {
+									$scope.zapo = data;
+									console.log($scope.tovar);
+								});
+								reso.error(function(data, status, headers,
+										config) {
+									console.log("failure message: "
+											+ JSON.stringify({
+												data : data
+											}));
+								});
+								return $scope.zapo;
+							};
 							$scope.SpremeniT = function(tovar) {
 								
 								console.log(tovar);
