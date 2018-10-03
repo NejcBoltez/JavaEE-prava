@@ -23,6 +23,8 @@ Zaposleniapp
 							$scope.tovar;
 							$scope.tovid =5;
 							$scope.zap;
+							$scope.isci;
+							$scope.isciatribut;
 							$scope.getUserData = function() {
 								console.log($scope.tovid);
 								$scope.delavec = {

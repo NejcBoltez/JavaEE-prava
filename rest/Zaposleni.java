@@ -170,30 +170,34 @@ public class Zaposleni extends Tovarna
 
 		public String toString()
 		{
-			String izpis = "";
-			izpis += "***  " + this.Tip + "  ***\r\n";
-			izpis += "[Ime in Priimek: " + getImeDelavca() + ",\r\n";
-			izpis += "Rojstni dan delavca: " + getRojstniDatum() + ",\r\n";
-			izpis += "Spol delavca: " + getSpol() + ",\r\n";
-			izpis += "Starost delavca: " + getStarost() + "," + "\r\n";
-			izpis += "Sektor v katerem dela: " + getSektor() + "," + "\r\n";
-			izpis += "Trenutna stopnja izobrazbe: " + getIzobrazba() + "," + "\r\n";
+			StringBuilder builder = new StringBuilder();
+			builder.append("***  " + getTip() + "  ***\r\n");
+			builder.append("[Ime in Priimek: " + getImeDelavca() + ",\r\n");
+			builder.append("Rojstni dan delavca: " + getRojstniDatum() + ",\r\n");
+			builder.append("Spol delavca: " + getSpol() + ",\r\n");
+			builder.append("Starost delavca: " + getStarost() + "," + "\r\n");
+			builder.append("Sektor v katerem dela: " + getSektor() + "," + "\r\n");
+			builder.append("Trenutna stopnja izobrazbe: " + getIzobrazba() + "," + "\r\n");
+			
+			 String izpis = builder.toString();
+			
 			return izpis;
 		}
 		public String shraniKotNiz()
 		{
-			String zapis = "";
-			zapis += "*D\r\n";
-			zapis += getImeDelavca()  + "\r\n";
-			zapis += getRojstniDatum() + "\r\n";
-			zapis += getSpol() + "\r\n";
-			zapis += getStarost() + "\r\n";
-			zapis += getSektor() +"\r\n";
-			zapis += getIzobrazba() +"\r\n";
-			zapis += getTip() +"\r\n";
+			StringBuilder builder = new StringBuilder();
+			builder.append("*D\r\n");
+			builder.append(getImeDelavca()+"\r\n");
+			builder.append(getRojstniDatum()+"\r\n");
+			builder.append(getSpol()+"\r\n");
+			builder.append(getStarost()+"\r\n");
+			builder.append(getSektor()+"\r\n");
+			builder.append(getIzobrazba()+"\r\n");
+			builder.append(getTip()+"\r\n");
+			builder.append("##\r\n");
 
-			zapis += "##\r\n";
-
+			String zapis = builder.toString();
+			
 			return zapis;
 		}
 

@@ -175,7 +175,7 @@ footer{
 			<tr>
 				<td><p>Vpisi ime delavca: </p></td>
 				<td><input type="text" id="ime" ng-model="ImeDelavca" placeholder="enter a name"></input></td><tr>
-				<td><p>Vpisi Rojstni dan delvca: </p></td>
+				<td><p>Vpisi Rojstni dan delavca: </p></td>
 				<td><input type="date" id="Rojstni-datum" ng-model="RojstniDatum" placeholder="vpisi rojstni datum"></input></td><tr>
 			<td>
 				<p>Izberite spol</p>
@@ -197,9 +197,36 @@ footer{
 			<td><input type="text" id="tip" ng-model="tip" placeholder="vpisi tip"></input></td><tr>
 		</table>
 		<button ng-click="getUserData()">Get data</button><br>
-		<button onclick="DodajdelavcaTable2()" ng-click="printZ()">Print zaposleni</button><br>
+		<button onclick="DodajdelavcaTable2()" ng-click="printZ()">Izpisi vse zaposlene</button><br>
 
 		<table id="DodajdelavcaTable" style="display:none">
+			<tr>
+				<td>Id</td>
+				<td>Id Tovarne</td>
+				<td>Ime in Priimek</td>
+				<td>Datum rojstva</td>
+				<td>Spol</td>
+				<td>Starost</td>
+				<td>Sektor</td>
+				<td>Izobrazba</td>
+			</tr>
+			<tr ng-repeat="z in zaposleni track by z.id">
+				<td>{{z.id}}</td>
+				<td>{{z.idTov}}</td>
+				<td>{{z.ImeDelavca}}</td>
+				<td>{{z.RojstniDatum}}</td>
+				<td>{{z.Spol}}</td>
+				<td>{{z.Starost}}</td>
+				<td>{{z.sektor}}</td>
+				<td>{{z.izobrazba}}</td>
+				<td><button onclick="ModifyZenable()" ng-click="$parent.ModifyZ(z)">Edit</button></td>
+				<td><button ng-click="SQLzapisZ(z)">SQLzapis</button></td>
+				<td><button ng-click="$parent.deleteZ(z.id)">Delete</button></td>
+			</tr>
+		</table>
+		<br>
+		</div>
+		<table id="DodajdelavcaAtribut" style="display:none">
 			<tr>
 				<td>Id</td>
 				<td>Id Tovarne</td>
@@ -250,8 +277,5 @@ footer{
 	</div>
 	</div>
 	</div>
-	<footer>
-		<h1>Nejc Boltez</h1>
-	</footer>
 </body>
 </html>

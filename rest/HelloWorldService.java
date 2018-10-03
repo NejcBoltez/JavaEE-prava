@@ -224,6 +224,7 @@ public class HelloWorldService {
 		}
 		tovarnaList.add(new Tovarna(id, naziv));
     }
+
 	@Path("Tovarna")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
